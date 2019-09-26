@@ -6,4 +6,5 @@ from my_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home_view, name="home"),
+    path("articles/", views.articles, name="articles"),
 ]

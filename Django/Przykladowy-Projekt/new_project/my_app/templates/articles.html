@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lista artykułów</title>
+</head>
+<body>
+    <h1>Lista artykułów</h1>
+    <hr>
+    {% for article in articles %}
+        <h5>{{ article.title }}</h5>
+        <p>Author: <span>{{ article.author.username }}</span></p>
+        <p> 
+            Likes: <span style="font-weight: bold;">{{ article.likes }}</span> 
+            Dislikes: <span style="font-weight: bold;">{{ article.dislikes }}</span>
+        </p>
+        <br>
+        <br>
+    {% endfor %}
+</body>
+</html>

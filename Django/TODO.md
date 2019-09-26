@@ -8,7 +8,8 @@ Prezentacje:
 * Pierwsze modele i migracje, ORM, wybór bazy w settingsach, wybór innej bazy, co robi komenda migrate / co robi komenda makemigrations, typy pól oraz ich parametry, relacje Jeden do wielu, jeden do jednego, wiele do wielu (znaleźć odpowiednie przykłady)
 * python shell, django admin, rejestrowanie modeli, querysetym czym są oraz jak
 wyciągać istotne informacje
-* Zawaansowane widoki (widoki klasowe, widoki, przekazywanie parametrów do templatki), django template language (czym jest, filtry, tagi, zmienne), omówienie obiektu request (co posiada), sesje i ciasteczka
+* Zawaansowane widoki (widoki klasowe, widoki, przekazywanie parametrów do templatki), django template language (czym jest, filtry, tagi, zmienne), omówienie obiektu request (co posiada)
+* sesje i ciasteczka, URLe oraz parametry w widokach, formularze:
 * Własny model użytkownika, tabela pośrednia dla M2M (through), wsgi oraz asgi w Django 3.0
 
 3. Prezentacja (podzielona na części), omawiające kolejne aspekty Django. Do każdej części podpiąć wiele przydatnych linków
