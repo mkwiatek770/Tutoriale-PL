@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Lista artykułów</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+    Lista artykułów
+{% endblock %}
+
+{% block content %}
     <h1>Lista artykułów</h1>
     <hr>
     {% for article in articles %}
-        <h5>{{ article.title }}</h5>
+        
+        <a href="{% url 'article_detail' id=article.id %}"><h5>{{ article.title }}</h5></a>
         <p>Author: <span>{{ article.author.username }}</span></p>
         <p> 
             Likes: <span style="font-weight: bold;">{{ article.likes }}</span> 
@@ -16,5 +17,4 @@
         <br>
         <br>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

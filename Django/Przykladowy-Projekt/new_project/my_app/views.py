@@ -1,14 +1,50 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.views import View
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.models import User
+from django.utils import timezone
+from django.contrib import messages
 from my_app.models import Article
 
 
 def home_view(request):
-    return HttpResponse("<h1>Hello World!</h1>")
-
+    return render(request, "home.html")
 
 def articles(request):
     articles = Article.objects.all()
     return render(request, "articles.html", {
         "articles": articles
     })
+
+
+def article_detail(request, id):
+    article = get_object_or_404(Article, pk=id)
+    return render(request, "article_detail.html", {
+        "article": article
+    })
+
+
+class ArticleCreate(View):
+
+    def get(self, request):
+        users = User.objects.all()
+        return render(request, "article_create.html", {"users": users})
+
+    def post(self, request):
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        author = request.POST.get("author")
+        author_object = User.objects.get(username=author)
+
+        try:
+            article = Article.objects.create(
+                title=title,
+                description=description,
+                author=author_object,
+                published_date=timezone.now()
+            )
+            messages.success(request, "Article with title {} has been created!".format(title))
+        except Exception as err:
+            messages.success(request, "There was an error: {}".format(err))
+        
+        return redirect("articles")

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Create new article
+{% endblock %}
+
+{% block content %}
+    <h1>Create article</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        Title: <input type="text" name="title">
+        <br>
+        <textarea name="description" cols="30" rows="10"></textarea>
+        <br>
+        Author: <select name="author">
+            {% for user in users %}
+                <option value="{{ user.username }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button>Create article</button>
+    </form>
+{% endblock %}

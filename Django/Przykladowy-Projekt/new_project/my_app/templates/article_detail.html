@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ article.title|title }}</h1>
+    <p>Author: <span style="font-weight: bold;">{{ article.author.username }}</span></p>
+    <hr>
+    <p>{{ article.description }}</p>
+    <hr>
+    <p>Likes: {{ article.likes }}</p>
+    <p>Dislikes: {{ article.dislikes }}</p>
+{% endblock %}
