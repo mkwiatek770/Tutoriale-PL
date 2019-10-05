@@ -11,7 +11,7 @@ def home_view(request):
     return render(request, "home.html")
 
 def articles(request):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by("-publised_date")
     return render(request, "articles.html", {
         "articles": articles
     })
@@ -41,10 +41,22 @@ class ArticleCreate(View):
                 title=title,
                 description=description,
                 author=author_object,
-                published_date=timezone.now()
             )
             messages.success(request, "Article with title {} has been created!".format(title))
         except Exception as err:
             messages.success(request, "There was an error: {}".format(err))
         
         return redirect("articles")
+
+
+class ArticleUpdate(View):
+
+    def get(self, request, id):
+        article = get_object_or_404(Article, id=id)
+        return render(request, "article_update.html", {"article": article})
+    
+    def post(self, request, id):
+        article = get_object_or_404(Article, id=id)
+
+        new_title = request.POST.get("title")
+        description = request.POST.get("description")
