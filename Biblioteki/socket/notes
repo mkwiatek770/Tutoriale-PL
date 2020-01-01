@@ -1,0 +1,20 @@
+- low level networking interface
+- rodzaj inter-process-communication (IPC) https://en.wikipedia.org/wiki/Inter-process_communication
+- The most common type of socket applications are client-server applications, where one side acts as the server and waits for connections from clients.
+- są Internet sockets oraz UNIX domain sockets (komunikacja pomiędzy procesami tego samego hosta)
+
+socket funkcje i metody:
+    socket()
+    bind()
+    listen()
+    accept()
+    connect()
+    connect_ex()
+    send()
+    recv()
+    close()
+
+- do komunikacji sockety używają TCP lub rzadziej UDP
+- wiki socket: https://en.wikipedia.org/wiki/Network_socket
+- socket workflow https://files.realpython.com/media/sockets-tcp-flow.1da426797e37.jpg
+- web browser’s “client” socket and the web server’s “client” socket are identical beasts
